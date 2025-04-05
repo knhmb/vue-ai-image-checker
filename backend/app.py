@@ -1,8 +1,12 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from dotenv import load_dotenv
 import requests
 import os
 import uuid
+
+load_dotenv()
+huggingface_token = os.getenv("HUGGINGFACE_TOKEN")
 
 app = Flask(__name__)
 CORS(app)
@@ -10,7 +14,7 @@ CORS(app)
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-HUGGINGFACE_API_TOKEN = "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"  # Replace with your token
+HUGGINGFACE_API_TOKEN = huggingface_token  # Replace with your token
 MODEL_URL = "https://api-inference.huggingface.co/models/google/vit-base-patch16-224"
 HEADERS = {"Authorization": f"Bearer {HUGGINGFACE_API_TOKEN}"}
 
