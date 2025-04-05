@@ -36,9 +36,9 @@ export default {
     return {
       image: null,
       result: null,
-      error: '',
       previewUrl: null,
       loading: false,
+      error: '',
     }
   },
   methods: {
